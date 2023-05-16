@@ -12,7 +12,7 @@ import { FaDeezer } from "react-icons/fa";
 import "./AlbumCard.css";
 import Player from "../Player/Player";
 
-function AlbumCard({ album, handleParentClick }) {
+function AlbumCard({ album, handleParentClick, isClicked }) {
   return (
     <div className="album-card">
       <Card
@@ -22,16 +22,21 @@ function AlbumCard({ album, handleParentClick }) {
         }}
       >
         <img alt="" src={album.album.cover_medium} />
-        <CardBody style={{ height: "220px" }}>
+        <CardBody style={{ height: "260px" }}>
           <div className="card-info">
-            <CardTitle tag="h5" style={{ textAlign: "left" }}>
-              {album.album.title}
+            <CardTitle tag="h5" style={{ textAlign: "left", fontSize: "1.15rem" }}>
+              {album.title}
             </CardTitle>
+
             <CardText>{album.duration}</CardText>
           </div>
+          <CardText>{album.album.title}</CardText>
           <div className="card-bottom">
-            <Button onClick={() => handleParentClick(album)}>
-              Add to Playlist
+            <Button
+              onClick={() => handleParentClick(album)}
+              style={{ backgroundColor: isClicked ? "red" : "" }}
+            >
+              {!isClicked ? "Add to Playlist" : "Remove from Playlist"}
             </Button>
             <Player song={album.preview} />
           </div>
