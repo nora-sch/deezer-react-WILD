@@ -27,8 +27,7 @@ function AlbumCard({ album, handleParentClick, isClicked }) {
             <CardTitle tag="h5" style={{ textAlign: "left", fontSize: "1.15rem" }}>
               {album.title}
             </CardTitle>
-
-            <CardText>{album.duration}</CardText>
+            <CardText style={{fontSize:"12px"}}>{Math.floor(album.duration/60)+'h'+album.duration % 60+'min'}</CardText>
           </div>
           <CardText>{album.album.title}</CardText>
           <div className="card-bottom">

@@ -14,8 +14,7 @@ function Navbar({ playlist, deletePlaylist, deleteOneByOne }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
-    // <Nav style = {{  position: "fixed",top: 0,  overflow: "hidden", zIndex:1000, backgroundColor:"white", width:'100%' }}>
-    <Nav>
+    <Nav style = {{  position: "fixed",top: 0, zIndex:1000, backgroundColor:"white", width:'100%'}}>
       <NavItem>
         <NavLink active href="#">
           Link
